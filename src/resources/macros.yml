@@ -1,0 +1,42 @@
+# 使用 $xxx 来捕获一个变量
+# 数据类型:
+# number: 一个整数或者浮点数
+# string: 一段字符串, 到空格为止, 或者用 "" 引起来的字符串
+# boolean: 一个表示真假性的量,
+# player: 一段合法玩家名(仅含A-Z,a-z,0-9和_的字符串)
+# location: 三个连续数字, 或者一个玩家名
+
+commands:
+  # 传送到1 1 1 -> /tp 1 1 1
+  example-teleport:
+    # 无 /?
+    # true 则会匹配玩家说的话
+    # false 则会匹配玩家输入的命令
+    noslash: true
+    # 需求的权限，没有则不填
+    permission: ""
+    # 命令的语法
+    # 词语词之间用空格隔开，但是匹配的时候可以连在一起，比如这一条可以匹配 "传送到1 1 1"
+    # 用 $xxx:类型 来捕获一个变量
+    # 类型的说明写在本文件的最上方
+    # 捕获的变量可以在下面的 product 里面使用
+    grammar: "传送到 $a:location"
+    # 拼接命令最终产物
+    # $a 引用了上面捕获的变量
+    product: "tp $a"
+  # /传送 1 1 1 -> /tp 1 1 1
+  example2:
+    noslash: false
+    permission: "teleport"
+    grammar: "传送 $a:location"
+    product: "tp $a"
+  example3:
+    noslash: true
+    permission: ""
+    grammar: "简化命令"
+    product: "say 简化命令"
+  ">_<":
+    noslash: true
+    permission: ""
+    grammar: "我爱 Ichigo"
+    product: "say [Ichigo] 我也爱你~"

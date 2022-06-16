@@ -1,0 +1,6 @@
+# 提示信息
+# 请用 § 作为颜色符号
+messages:
+  prefix: "§aIchigo §9>>"
+  noperm: "§c你没有权限"
+  reloaded: "§a重载完成"

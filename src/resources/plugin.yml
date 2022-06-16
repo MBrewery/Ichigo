@@ -1,0 +1,10 @@
+name: Ichigo
+main: gl.ky.ichigo.Ichigo
+version: 1.0.0
+author: kouyoux
+description: command macro
+api-version: 1.16
+commands:
+  ichigo_reload:
+    description: reload ichigo
+    aliases: ireload
